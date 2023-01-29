@@ -1,0 +1,14 @@
+{
+  "extends": ["eslint-config-react-typescript/lib/react"],
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "sourceType": "module"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "no-shadow": "off"
+  }
+}
