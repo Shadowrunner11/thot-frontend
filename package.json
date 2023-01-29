@@ -1,22 +1,38 @@
 {
   "name": "thot-frontend",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fake:server": "json-graphql-server fakedata/db.json"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.5",
+    "graphql": "^16.6.0",
+    "ra-data-graphql-simple": "^4.6.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-admin": "^4.7.2",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.42.1"
   },
   "devDependencies": {
+    "@material-ui/types": "^5.1.0",
+    "@mui/types": "^7.2.3",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
+    "@types/react-router-dom": "^5.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@vitejs/plugin-react": "^3.0.0",
+    "eslint": "^8.33.0",
+    "eslint-config-react-typescript": "^1.0.10",
+    "json-graphql-server": "^2.3.2",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
-  }
+  },
+  "repository": "git@github.com:Shadowrunner11/thot-frontend.git",
+  "author": "shadowrunner11 <pieroramirez810@gmail.com>",
+  "license": "MIT"
 }
