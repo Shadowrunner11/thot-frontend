@@ -27,7 +27,7 @@ const manualChunks = {
 const isGithubActions = process.env.GITHUB_ACTIONS
 // https://vitejs.dev/config/
 export default defineConfig({
-  ...( isGithubActions ? { base: '/'} : {}),
+  ...( isGithubActions ? { base: '/thot-frontend'} : {}),
   plugins: [react(), /* splitVendorChunkPlugin() ** , chunkSplitPlugin() */ ],
   build:{
     rollupOptions:{
