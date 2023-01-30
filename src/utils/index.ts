@@ -21,3 +21,6 @@ export function cleanPojoMutable<T = any>(pojo: Record<string, T>){
 
   return pojo
 }
+
+export { createRouterByName } from './routes'
+export { withRouter } from './HOCs'

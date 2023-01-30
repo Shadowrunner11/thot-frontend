@@ -1,29 +1,29 @@
-import { Admin, EditGuesser, ListGuesser, Loading, Resource } from 'react-admin'
-import { useDataProvider } from './hooks'
-import { authProvider } from './lib'
-import { BrowserRouter } from 'react-router-dom'
-import Login from './pages/Login'
+import { lazy } from 'react'
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom'
 import { ApolloProvider } from '@apollo/client'
 import Apollo from './lib/Apollo'
+import { CustomRoutesApp } from './routes'
+import { DefaultSuspense } from './components/DynamicImport'
+import { withRouter } from './utils'
+
+// TODOL organizar y llevar a la wiki los ejemplos
+
+const GlobalRouter = withRouter((<Routes>
+  {/* Rutas de la app de react admin (necesita login) */}
+  <Route
+    path='/admin/*'
+    element={<DefaultSuspense LazyElement={lazy(()=> import('./pages/StorageAdmin'))} />}
+  />
+  {/* Rutas libres */}
+  <Route path='/other/*' element={<CustomRoutesApp />}/>
+</Routes>))
 
 function App() {
-  const dataProvider = useDataProvider()
-
-  if(!dataProvider) {
-    return <Loading />
-  }
-
   return (
     <ApolloProvider client={Apollo}>
-      <BrowserRouter>
-        <Admin
-          loginPage={Login}
-          authProvider={authProvider}
-          dataProvider={dataProvider}>
-          <Resource name="User" list={ListGuesser} />
-          <Resource name="Post" list={ListGuesser} edit={EditGuesser}/>
-        </Admin>
-      </BrowserRouter>
+      <GlobalRouter
+        RouterCustom={ import.meta.env.PROD ? HashRouter : BrowserRouter }
+      />
     </ApolloProvider>
   )
 }

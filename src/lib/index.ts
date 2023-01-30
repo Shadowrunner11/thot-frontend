@@ -1,6 +1,7 @@
+/* eslint-disable no-console */
 import graphqlProvider from 'ra-data-graphql-simple'
 
-import { AuthProvider } from 'react-admin'
+import { AuthProvider, RaThemeOptions } from 'react-admin'
 import Apollo from './Apollo'
 import { GET_USER } from '../graphql/getUser.query'
 
@@ -11,6 +12,23 @@ export const dataProviderGraphql = graphqlProvider({
 
 
 export const authProvider: AuthProvider = {
+  checkAuth(params) {
+    console.log(params)
+    return localStorage.getItem('username')
+      ? Promise.resolve()
+      : Promise.reject();
+
+  },
+  checkError(params){
+    console.log(params)
+
+    return Promise.resolve()
+  },
+  getPermissions(params) {
+    console.log(params)
+
+    return Promise.resolve()
+  },
   async login(params) {
     console.log(params)
     const user = await Apollo.query({
@@ -24,27 +42,15 @@ export const authProvider: AuthProvider = {
 
     localStorage.setItem('username', params.username);
   },
+
   logout(params) {
     localStorage.removeItem('username');
     console.log(params)
 
     return Promise.resolve()
   },
-  checkError(params){
-    console.log(params)
-
-    return Promise.resolve()
-  },
-  checkAuth(params) {
-    console.log(params)
-    return localStorage.getItem('username')
-      ? Promise.resolve()
-      : Promise.reject();
-
-  },
-  getPermissions(params) {
-    console.log(params)
-
-    return Promise.resolve()
-  },
 }
+
+export const darkTheme: RaThemeOptions = {
+  palette: { mode: 'dark' },
+};

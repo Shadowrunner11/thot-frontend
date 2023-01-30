@@ -9,6 +9,16 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "no-unused-expressions": "error",
+    "no-unused-labels": "error",
+    "no-unused-vars": "error",
+    "no-console": "error",
+    "object-curly-spacing": ["error", "always"],
+    "sort-keys": ["error", "asc"],
+    "complexity": ["error", 5],
+    "max-params": ["error", 3],
+    "max-statements": ["error", 30],
+    "max-depth": "error"
   }
 }

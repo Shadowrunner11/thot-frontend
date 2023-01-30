@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["ES2016"],
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "composite": true,

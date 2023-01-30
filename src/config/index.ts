@@ -11,11 +11,11 @@ const endpoints = {
   development:{
     thotBackendGraph: 'https://thotgraphql.dev.com',
   },
-  test:{
-    thotBackendGraph: 'http://localhost:5000',
-  },
   production:{
     thotBackendGraph: 'https://thotgraphql.com',
+  },
+  test:{
+    thotBackendGraph: 'http://localhost:5000',
   },
 }
 
