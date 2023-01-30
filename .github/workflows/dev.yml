@@ -10,7 +10,7 @@ jobs:
     name: deploy dev
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - uses: actions/setup-node@v2
         with:
@@ -23,11 +23,10 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn build
-          ls -al
-          touch .nojekyll
+          touch dist/.nojekyll
       - name: Deploy
         # https://github.com/JamesIves/github-pages-deploy-action
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: ./
+          folder: dist
