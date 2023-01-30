@@ -23,8 +23,11 @@ const manualChunks = {
     return chunks
   }, {}),
 }
+
+const isGithubActions = process.env.GITHUB_ACTIONS
 // https://vitejs.dev/config/
 export default defineConfig({
+  ...( isGithubActions ? { base: '/'} : {}),
   plugins: [react(), /* splitVendorChunkPlugin() ** , chunkSplitPlugin() */ ],
   build:{
     rollupOptions:{

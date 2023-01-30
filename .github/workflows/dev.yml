@@ -23,10 +23,10 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn build
-          touch out/.nojekyll
+          touch dist/.nojekyll
       - name: Deploy
         # https://github.com/JamesIves/github-pages-deploy-action
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: out
+          folder: dist
