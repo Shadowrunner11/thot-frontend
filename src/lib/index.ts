@@ -3,7 +3,7 @@ import graphqlProvider from 'ra-data-graphql-simple'
 
 import { AuthProvider, RaThemeOptions } from 'react-admin'
 import Apollo from './Apollo'
-import { GET_USER } from '../graphql/getUser.query'
+import { LOGIN } from '../graphql/getUser.query'
 
 
 export const dataProviderGraphql = graphqlProvider({
@@ -14,7 +14,7 @@ export const dataProviderGraphql = graphqlProvider({
 export const authProvider: AuthProvider = {
   checkAuth(params) {
     console.log(params)
-    return localStorage.getItem('username')
+    return localStorage.getItem('ssid')
       ? Promise.resolve()
       : Promise.reject();
 
@@ -30,17 +30,23 @@ export const authProvider: AuthProvider = {
     return Promise.resolve()
   },
   async login(params) {
-    console.log(params)
-    const user = await Apollo.query({
-      query: GET_USER,
-      variables:{
-        id: '123',
-      },
+    console.log('🚀 ~ file: index.ts:33 ~ login ~ params', params)
+    const { data, errors } = await Apollo.mutate({
+      mutation: LOGIN,
+      variables:params,
     })
 
-    console.log(user)
+    console.log(errors)
 
-    localStorage.setItem('username', params.username);
+    if(errors?.length) {
+      throw new Error(errors?.reduce((prev, next) => prev + next.message, ''))
+    }
+
+    console.log(data)
+
+
+    localStorage.setItem('ssid', data.login);
+
   },
 
   logout(params) {

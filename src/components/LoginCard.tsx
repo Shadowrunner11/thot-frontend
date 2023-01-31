@@ -5,7 +5,7 @@ export default () => (
   <Card>
     <CardContent>
       <Grid direction='column' container>
-        <TextInput source='username'/>
+        <TextInput source='email'/>
         <TextInput source='password'/>
         <Button type="submit" variant='contained'>Login</Button>
       </Grid>
