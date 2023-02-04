@@ -1,4 +1,4 @@
-import{A as u,D as p,_ as f,C as v}from"./index-c44e899e.js";import{u as P,j as t,C as S,b as y,a as r,G as a,T as c,B as C,F as _,c as L,d as b,e as w,L as I,A as k,f as x,E as D}from"./react-admin-47320ed0.js";import{r as i}from"./vendor-1a3567d7.js";import{bc as T,G as g,aU as A,aW as E,bd as d,be as G,ba as $}from"./ra-data-graphql-simple-5fc26fa5.js";import{g as h}from"./@apollo/client-6a540b6b.js";import"./react-hook-form-3adb9e23.js";import"./graphql-422755b2.js";h`query getUSer ($id: ID!) {
+import{A as u,D as p,_ as f,C as v}from"./index-fe1de6fe.js";import{u as P,j as t,C as S,b as y,a as r,G as a,T as c,B as C,F as _,c as L,d as b,e as w,L as I,A as k,f as x,E as D}from"./react-admin-47320ed0.js";import{r as i}from"./vendor-1a3567d7.js";import{bc as T,G as g,aU as A,aW as E,bd as d,be as G,ba as $}from"./ra-data-graphql-simple-5fc26fa5.js";import{g as h}from"./@apollo/client-6a540b6b.js";import"./react-hook-form-3adb9e23.js";import"./graphql-422755b2.js";h`query getUSer ($id: ID!) {
   User (id: $id) {
    name
   }
