@@ -8,6 +8,9 @@ on:
 
 jobs:
   deploy-dev:
+    environment: dev
+    env:
+      VITE_THOT_GRAPHQL: var.VITE_THOT_GRAPHQL
     name: deploy dev
     runs-on: ubuntu-latest
     steps:
