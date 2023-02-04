@@ -10,7 +10,7 @@ jobs:
   deploy-dev:
     environment: dev
     env:
-      VITE_THOT_GRAPHQL: var.VITE_THOT_GRAPHQL
+      VITE_THOT_GRAPHQL: ${{ var.VITE_THOT_GRAPHQL }}
     name: deploy dev
     runs-on: ubuntu-latest
     steps:
@@ -28,6 +28,7 @@ jobs:
           yarn install --frozen-lockfile
           yarn build
           touch dist/.nojekyll
+          echo $VITE_THOT_GRAPHQL
       - name: Deploy
         # https://github.com/JamesIves/github-pages-deploy-action
         uses: JamesIves/github-pages-deploy-action@v4
